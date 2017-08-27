@@ -1,5 +1,6 @@
 # Changelog
 
-## 0.0.1
+## 0.1.0
 
-- Initial version, created by Stagehand
+  - Initial version, a `LoggingMiddleware` for Redux, which connects the dispatched actions to to a `Logger`. 
+  - Includes a `printer` factory, which prints all logged messages to the your console / terminal.

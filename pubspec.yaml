@@ -1,14 +1,15 @@
-name: gitlab_dart_lib
+name: redux_logging
 description: A starting point for Dart libraries or applications.
-version: 0.0.1
-homepage: https://gitlab.com/brianegan/gitlab_dart_lib
+version: 0.1.0
+homepage: https://gitlab.com/brianegan/redux_logging
 author: Brian Egan <brian@brianegan.com
 
 environment:
   sdk: '>=1.20.1 <2.0.0'
 
-#dependencies:
-#  path: ^1.4.1
+dependencies:
+  redux: ">=2.0.0 <3.0.0"
+  logging: ">=0.11.3 <0.12.0"
 
 dev_dependencies:
   test: ^0.12.0
