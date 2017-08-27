@@ -32,6 +32,7 @@ void main() {
           new LoggingMiddleware<int>(
             logger: logger,
             level: Level.SEVERE,
+            formatter: LoggingMiddleware.multiLineFormatter,
           )
         ],
       );
