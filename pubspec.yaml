@@ -2,7 +2,7 @@ name: redux_logging
 description: A starting point for Dart libraries or applications.
 version: 0.1.0
 homepage: https://gitlab.com/brianegan/redux_logging
-author: Brian Egan <brian@brianegan.com
+author: Brian Egan <brian@brianegan.com>
 
 environment:
   sdk: '>=1.20.1 <2.0.0'
