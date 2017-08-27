@@ -9,3 +9,5 @@ pubspec.lock
 doc/api/
 .idea
 *.iml
+coverage/
+coverage.json
