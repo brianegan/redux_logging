@@ -1,6 +1,6 @@
 name: redux_logging
-description: A starting point for Dart libraries or applications.
-version: 0.1.0
+description: Redux Middleware that connects a Logger to a Store.
+version: 0.1.1
 homepage: https://gitlab.com/brianegan/redux_logging
 author: Brian Egan <brian@brianegan.com>
 
