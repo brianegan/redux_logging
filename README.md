@@ -1,5 +1,7 @@
 # redux_logging
 
+[![build status](https://gitlab.com/brianegan/redux_logging/badges/master/build.svg)](https://gitlab.com/brianegan/redux_logging/commits/master)  [![coverage report](https://gitlab.com/brianegan/redux_logging/badges/master/coverage.svg)](https://brianegan.gitlab.io/redux_logging/coverage/)
+
 Connects a [Logger](https://pub.dartlang.org/packages/logging) to a [Redux](https://pub.dartlang.org/packages/redux) Store.
 
 Logs every Action that is dispatched to the Store, along with the current `State`.

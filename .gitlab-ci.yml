@@ -6,6 +6,7 @@ health_check:
   image: brianegan/dart-lcov:release-1.24.2
   stage: test
   script:
+    - pub get
     - dartfmt -n .
     - dartanalyzer --fatal-warnings lib
 
