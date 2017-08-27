@@ -13,8 +13,6 @@ unit_test:
   image: brianegan/dart-lcov:release-1.24.2
   stage: test
   script:
-    - dartfmt -n .
-    - dartanalyzer --fatal-warnings lib
     - pub get && pub run test/gitlab_dart_lib_test.dart
 
 coverage:
