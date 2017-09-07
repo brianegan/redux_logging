@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.2
+
+  - Fix examples
+
 ## 0.1.1
 
   - Include description in `pubspec.yaml`

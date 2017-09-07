@@ -21,7 +21,7 @@ import "package:redux/redux.dart";
 import 'package:redux_logging/redux_logging.dart';
 
 final store = new Store<int>(
-  (Store<int> store, action) => store + 1,
+  (int state, action) => state + 1,
   initialValue: 0,
   middleware: [new LoggingMiddleware.printer()]
 );
@@ -44,7 +44,7 @@ final logger = new Logger("Redux Logger");
 // Pass it to your Middleware
 final middleware = new LoggingMiddleware(logger: logger);
 final store = new Store<int>(
-  (Store<int> store, action) => store + 1,
+  (int state, action) => state + 1,
   initialState: 0,
   middleware: [middleware],
 );
@@ -87,7 +87,7 @@ final middleware = new LoggingMiddleware(formatter: onlyLogActionFormatter);
 
 // Add the middleware with your formatter to your Store
 final store = new Store<int>(
-  (Store<int> store, action) => store + 1,
+  (int state, action) => state + 1,
   initialState: 0,
   middleware: [middleware],
 );

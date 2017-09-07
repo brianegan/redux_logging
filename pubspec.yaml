@@ -1,6 +1,6 @@
 name: redux_logging
 description: Redux Middleware that connects a Logger to a Store.
-version: 0.1.1
+version: 0.1.2
 homepage: https://gitlab.com/brianegan/redux_logging
 author: Brian Egan <brian@brianegan.com>
 

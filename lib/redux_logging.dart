@@ -26,7 +26,7 @@ import 'package:logging/logging.dart';
 /// console / terminal, use the `new LoggingMiddleware.printer()` factory.
 ///
 ///     final store = new Store<int>(
-///       (Store<int> store, action) => store + 1,
+///       (int state, action) => state + 1,
 ///       initialValue: 0,
 ///       middleware: [new LoggingMiddleware.printer()]
 ///     );
@@ -43,7 +43,7 @@ import 'package:logging/logging.dart';
 ///     // Pass it to your Middleware
 ///     final middleware = new LoggingMiddleware(logger: logger);
 ///     final store = new Store<int>(
-///       (Store<int> store, action) => store + 1,
+///       (int state, action) => state + 1,
 ///       initialState: 0,
 ///       middleware: [middleware],
 ///     );
@@ -148,7 +148,7 @@ class LoggingMiddleware<State> extends MiddlewareClass<State> {
 ///
 ///     // Add the middleware to your Store
 ///     final store = new Store<int>(
-///           (Store<int> store, action) => store + 1,
+///           (int state, action) => state + 1,
 ///       initialState: 0,
 ///       middleware: [middleware],
 ///     );
