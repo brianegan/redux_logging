@@ -1,7 +1,7 @@
 name: redux_logging
-description: Redux Middleware that connects a Logger to a Store.
-version: 0.1.2
-homepage: https://gitlab.com/brianegan/redux_logging
+description: Redux.dart Middleware that prints the latest action & state
+version: 0.1.3
+homepage: https://github.com/brianegan/redux_logging
 author: Brian Egan <brian@brianegan.com>
 
 environment:

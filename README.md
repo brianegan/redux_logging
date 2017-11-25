@@ -1,8 +1,8 @@
 # redux_logging
 
-[![build status](https://gitlab.com/brianegan/redux_logging/badges/master/build.svg)](https://gitlab.com/brianegan/redux_logging/commits/master)  [![coverage report](https://gitlab.com/brianegan/redux_logging/badges/master/coverage.svg)](https://brianegan.gitlab.io/redux_logging/coverage/)
+[![Build Status](https://travis-ci.org/brianegan/redux_dev_tools.svg?branch=master)](https://travis-ci.org/brianegan/redux_logging) [![codecov](https://codecov.io/gh/brianegan/redux_logging/branch/master/graph/badge.svg)](https://codecov.io/gh/brianegan/redux_logging)
 
-Connects a [Logger](https://pub.dartlang.org/packages/logging) to a [Redux](https://pub.dartlang.org/packages/redux) Store.
+Connects a [Logger](https://pub.dartlang.org/packages/logging) to a [Redux](https://pub.dartlang.org/packages/redux) Store. Can also simply print the latest state / action changes.
 
 Logs every Action that is dispatched to the Store, along with the current `State`.
 
