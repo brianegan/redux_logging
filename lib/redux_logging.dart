@@ -84,7 +84,7 @@ class LoggingMiddleware<State> extends MiddlewareClass<State> {
     final middleware = new LoggingMiddleware(
       logger: logger,
       level: level,
-      formatter: singleLineFormatter,
+      formatter: formatter,
     );
 
     middleware.logger.onRecord

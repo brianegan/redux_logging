@@ -29,7 +29,7 @@ void main() {
         addReducer,
         initialState: 0,
         middleware: [
-          new LoggingMiddleware<int>(
+          new LoggingMiddleware<int>.printer(
             logger: logger,
             level: Level.SEVERE,
             formatter: LoggingMiddleware.multiLineFormatter,

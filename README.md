@@ -1,6 +1,6 @@
 # redux_logging
 
-[![Build Status](https://travis-ci.org/brianegan/redux_dev_tools.svg?branch=master)](https://travis-ci.org/brianegan/redux_logging) [![codecov](https://codecov.io/gh/brianegan/redux_logging/branch/master/graph/badge.svg)](https://codecov.io/gh/brianegan/redux_logging)
+[![Build Status](https://travis-ci.org/brianegan/redux_logging.svg?branch=master)](https://travis-ci.org/brianegan/redux_logging) [![codecov](https://codecov.io/gh/brianegan/redux_logging/branch/master/graph/badge.svg)](https://codecov.io/gh/brianegan/redux_logging)
 
 Connects a [Logger](https://pub.dartlang.org/packages/logging) to a [Redux](https://pub.dartlang.org/packages/redux) Store. Can also simply print the latest state / action changes.
 

@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.4
+
+  - Fix formatter for printer
+
 ## 0.1.3
 
   - Move to Github
