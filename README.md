@@ -12,6 +12,11 @@ If you simply want to print the latest action and state to your console / termin
 
 If you want more control over where the logged data is sent, you can listen to your Logger's `onRecord` Stream.
 
+## Dart Versions
+
+  * Dart 1 support: 0.1.x
+  * Dart 2 Support: 0.2.x+
+
 ### Simple Printing example
 
 If you just want an easy way to print actions to your console / terminal as they are dispatched, use the `new LoggingMiddleware.printer()` factory.

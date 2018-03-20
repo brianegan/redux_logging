@@ -1,7 +1,7 @@
 library redux_logging;
 
-import 'package:redux/redux.dart';
 import 'package:logging/logging.dart';
+import 'package:redux/redux.dart';
 
 /// Connects a [Logger] to a Redux Store.
 ///
@@ -71,8 +71,7 @@ class LoggingMiddleware<State> extends MiddlewareClass<State> {
     Logger logger,
     this.level = Level.INFO,
     this.formatter = singleLineFormatter,
-  })
-      : this.logger = logger ?? new Logger("LoggingMiddleware");
+  }) : this.logger = logger ?? new Logger("LoggingMiddleware");
 
   /// A helper factory for creating a piece of LoggingMiddleware that only
   /// prints to the console.
@@ -97,7 +96,7 @@ class LoggingMiddleware<State> extends MiddlewareClass<State> {
   /// A simple formatter that puts all data on one line
   static String singleLineFormatter<State>(
     State state,
-    action,
+    dynamic action,
     DateTime timestamp,
   ) {
     return "{Action: $action, State: ${state}, ts: ${new DateTime.now()}}";
@@ -106,7 +105,7 @@ class LoggingMiddleware<State> extends MiddlewareClass<State> {
   /// A formatter that puts each attribute on it's own line
   static String multiLineFormatter<State>(
     State state,
-    action,
+    dynamic action,
     DateTime timestamp,
   ) {
     return "{\n" +
@@ -117,7 +116,7 @@ class LoggingMiddleware<State> extends MiddlewareClass<State> {
   }
 
   @override
-  void call(Store<State> store, action, NextDispatcher next) {
+  void call(Store<State> store, dynamic action, NextDispatcher next) {
     next(action);
 
     logger.log(level, formatter(store.state, action, new DateTime.now()));
