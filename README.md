@@ -12,6 +12,11 @@ If you simply want to print the latest action and state to your console / termin
 
 If you want more control over where the logged data is sent, you can listen to your Logger's `onRecord` Stream.
 
+## Dart Versions
+
+  * Dart 1 support: 0.1.x
+  * Dart 2 Support: 0.2.x+
+
 ### Simple Printing example
 
 If you just want an easy way to print actions to your console / terminal as they are dispatched, use the `new LoggingMiddleware.printer()` factory.
@@ -21,7 +26,7 @@ import "package:redux/redux.dart";
 import 'package:redux_logging/redux_logging.dart';
 
 final store = new Store<int>(
-  (int state, action) => state + 1,
+  (int state, dynamic action) => state + 1,
   initialValue: 0,
   middleware: [new LoggingMiddleware.printer()]
 );
@@ -44,7 +49,7 @@ final logger = new Logger("Redux Logger");
 // Pass it to your Middleware
 final middleware = new LoggingMiddleware(logger: logger);
 final store = new Store<int>(
-  (int state, action) => state + 1,
+  (int state, dynamic action) => state + 1,
   initialState: 0,
   middleware: [middleware],
 );
@@ -76,7 +81,7 @@ import 'package:redux_logging/redux_logging.dart';
 // Create a formatter that only prints out the dispatched action
 String onlyLogActionFormatter<State>(
   State state,
-  action,
+  dynamic action,
   DateTime timestamp,
 ) {
   return "{Action: $action}";
@@ -87,7 +92,7 @@ final middleware = new LoggingMiddleware(formatter: onlyLogActionFormatter);
 
 // Add the middleware with your formatter to your Store
 final store = new Store<int>(
-  (int state, action) => state + 1,
+  (int state, dynamic action) => state + 1,
   initialState: 0,
   middleware: [middleware],
 );

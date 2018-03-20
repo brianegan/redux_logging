@@ -1,4 +1,5 @@
 import 'dart:async';
+
 import 'package:logging/logging.dart';
 import "package:redux/redux.dart";
 import 'package:redux_logging/redux_logging.dart';
@@ -6,10 +7,11 @@ import "package:test/test.dart";
 
 void main() {
   group("Logging Middleware", () {
-    int addReducer(int state, action) => action is int ? state + action : state;
+    int addReducer(int state, dynamic action) =>
+        action is int ? state + action : state;
 
     test("logs actions and state to the given logger", () async {
-      final middleware = new LoggingMiddleware.printer();
+      final middleware = new LoggingMiddleware<int>.printer();
       final store =
           new Store(addReducer, initialState: 1, middleware: [middleware]);
 
@@ -61,7 +63,7 @@ class logMessageContains extends Matcher {
   }
 
   @override
-  bool matches(item, Map matchState) {
+  bool matches(dynamic item, Map matchState) {
     if (item is LogRecord) {
       return patterns.every((pattern) => item.message.contains(pattern));
     }
@@ -81,7 +83,7 @@ class logLevel extends Matcher {
   }
 
   @override
-  bool matches(item, Map matchState) {
+  bool matches(dynamic item, Map matchState) {
     if (item is LogRecord) {
       return item.level == level;
     }
