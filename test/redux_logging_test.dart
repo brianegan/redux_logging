@@ -12,8 +12,11 @@ void main() {
 
     test("logs actions and state to the given logger", () async {
       final middleware = new LoggingMiddleware<int>.printer();
-      final store =
-          new Store(addReducer, initialState: 1, middleware: [middleware]);
+      final store = new Store<int>(
+        addReducer,
+        initialState: 1,
+        middleware: [middleware],
+      );
 
       scheduleMicrotask(() {
         store.dispatch(1);
@@ -27,7 +30,7 @@ void main() {
 
     test("can be configured with the correct logging level", () async {
       final logger = new Logger("Test");
-      final store = new Store(
+      final store = new Store<int>(
         addReducer,
         initialState: 0,
         middleware: [

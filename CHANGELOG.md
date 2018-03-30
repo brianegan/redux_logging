@@ -2,6 +2,11 @@
 
 ## 0.2.0
 
+  - Bump to Redux 3.0.0
+  - Fix Dart 2 bug
+
+## 0.2.0
+
   - Dart 2 support
 
 ## 0.1.4

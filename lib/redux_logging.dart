@@ -80,7 +80,7 @@ class LoggingMiddleware<State> extends MiddlewareClass<State> {
     Level level = Level.INFO,
     MessageFormatter<State> formatter = singleLineFormatter,
   }) {
-    final middleware = new LoggingMiddleware(
+    final middleware = new LoggingMiddleware<State>(
       logger: logger,
       level: level,
       formatter: formatter,
@@ -94,23 +94,23 @@ class LoggingMiddleware<State> extends MiddlewareClass<State> {
   }
 
   /// A simple formatter that puts all data on one line
-  static String singleLineFormatter<State>(
-    State state,
+  static String singleLineFormatter(
+    dynamic state,
     dynamic action,
     DateTime timestamp,
   ) {
-    return "{Action: $action, State: ${state}, ts: ${new DateTime.now()}}";
+    return "{Action: $action, State: $state, ts: ${new DateTime.now()}}";
   }
 
   /// A formatter that puts each attribute on it's own line
-  static String multiLineFormatter<State>(
-    State state,
+  static String multiLineFormatter(
+    dynamic state,
     dynamic action,
     DateTime timestamp,
   ) {
     return "{\n" +
         "  Action: $action,\n" +
-        "  State: ${state},\n" +
+        "  State: $state,\n" +
         "  Timestamp: ${new DateTime.now()}\n" +
         "}";
   }
