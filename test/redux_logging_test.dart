@@ -68,7 +68,7 @@ void main() {
 
       final store = new Store<String>(
         (String state, dynamic action) => state,
-        middleware: [loggingMiddleware, middleware],
+        middleware: [middleware, loggingMiddleware],
       );
 
       scheduleMicrotask(() {

@@ -117,8 +117,8 @@ class LoggingMiddleware<State> extends MiddlewareClass<State> {
 
   @override
   void call(Store<State> store, dynamic action, NextDispatcher next) {
-    logger.log(level, formatter(store.state, action, new DateTime.now()));
     next(action);
+    logger.log(level, formatter(store.state, action, new DateTime.now()));
   }
 }
 

@@ -2,7 +2,7 @@
 
 ## 0.3.1
 
-  - BugFix: Log messages should now always appear in correct order
+  - BugFix: Add docs explaining logging middleware needs to be last in chain
 
 ## 0.3.0
 

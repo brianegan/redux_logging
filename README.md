@@ -21,6 +21,8 @@ If you want more control over where the logged data is sent, you can listen to y
 
 If you just want an easy way to print actions to your console / terminal as they are dispatched, use the `new LoggingMiddleware.printer()` factory.
 
+**Note**: The LoggingMiddleware needs be the LAST middleware in the list. 
+
 ```dart
 import "package:redux/redux.dart";
 import 'package:redux_logging/redux_logging.dart';
@@ -28,7 +30,8 @@ import 'package:redux_logging/redux_logging.dart';
 final store = new Store<int>(
   (int state, dynamic action) => state + 1,
   initialValue: 0,
-  middleware: [new LoggingMiddleware.printer()]
+  // Note the LoggingMiddleware should come last in the list of Middleware!
+  middleware: [myOtherMiddleware, new LoggingMiddleware.printer()]
 );
 
 store.dispatch("Hi"); // prints {Action: "Hi", Store: 1, Timestamp: ...}
