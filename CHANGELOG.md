@@ -1,6 +1,10 @@
 # Changelog
 
-## 0.2.0
+## 0.3.1
+
+  - BugFix: Log messages should now always appear in correct order
+
+## 0.3.0
 
   - Bump to Redux 3.0.0
   - Fix Dart 2 bug

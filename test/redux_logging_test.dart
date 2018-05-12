@@ -24,7 +24,7 @@ void main() {
 
       await expect(
         middleware.logger.onRecord,
-        emits(new logMessageContains(["{Action: 1, State: 2,"])),
+        emits(new logMessageContains("{Action: 1, State: 2,")),
       );
     });
 
@@ -51,24 +51,56 @@ void main() {
         emits(new logLevel(Level.SEVERE)),
       );
     });
+
+    test('prints actions in correct order', () async {
+      var loggingMiddleware = new LoggingMiddleware<String>.printer();
+      void middleware(
+        Store<String> store,
+        dynamic action,
+        NextDispatcher next,
+      ) {
+        next(action);
+
+        if (action == 'I') {
+          store.dispatch('U');
+        }
+      }
+
+      final store = new Store<String>(
+        (String state, dynamic action) => state,
+        middleware: [loggingMiddleware, middleware],
+      );
+
+      scheduleMicrotask(() {
+        store.dispatch('I');
+      });
+
+      expect(
+        loggingMiddleware.logger.onRecord,
+        emitsInOrder(<Matcher>[
+          new logMessageContains('I'),
+          new logMessageContains('U'),
+        ]),
+      );
+    });
   });
 }
 
 class logMessageContains extends Matcher {
-  final List<Pattern> patterns;
+  final Pattern pattern;
 
-  logMessageContains(this.patterns);
+  logMessageContains(this.pattern);
 
   @override
   Description describe(Description description) {
     return description
-        .add('is a LogRecord with a message that contains: "$patterns"');
+        .add('is a LogRecord with a message that contains: "$pattern"');
   }
 
   @override
   bool matches(dynamic item, Map matchState) {
     if (item is LogRecord) {
-      return patterns.every((pattern) => item.message.contains(pattern));
+      return item.message.contains(pattern);
     }
 
     return false;

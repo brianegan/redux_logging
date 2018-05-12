@@ -1,6 +1,6 @@
 name: redux_logging
 description: Redux.dart Middleware that prints the latest action & state
-version: 0.3.0
+version: 0.3.1
 homepage: https://github.com/brianegan/redux_logging
 author: Brian Egan <brian@brianegan.com>
 

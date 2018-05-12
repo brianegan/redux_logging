@@ -86,9 +86,9 @@ class LoggingMiddleware<State> extends MiddlewareClass<State> {
       formatter: formatter,
     );
 
-    middleware.logger.onRecord
-        .where((record) => record.loggerName == middleware.logger.name)
-        .listen(print);
+    middleware.logger.onRecord.where((record) {
+      return record.loggerName == middleware.logger.name;
+    }).listen(print);
 
     return middleware;
   }
@@ -117,9 +117,8 @@ class LoggingMiddleware<State> extends MiddlewareClass<State> {
 
   @override
   void call(Store<State> store, dynamic action, NextDispatcher next) {
-    next(action);
-
     logger.log(level, formatter(store.state, action, new DateTime.now()));
+    next(action);
   }
 }
 
