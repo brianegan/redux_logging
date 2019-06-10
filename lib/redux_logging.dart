@@ -1,5 +1,6 @@
 library redux_logging;
 
+import 'package:flutter/foundation.dart' show debugPrint;
 import 'package:logging/logging.dart';
 import 'package:redux/redux.dart';
 
@@ -88,7 +89,7 @@ class LoggingMiddleware<State> extends MiddlewareClass<State> {
 
     middleware.logger.onRecord.where((record) {
       return record.loggerName == middleware.logger.name;
-    }).listen(print);
+    }).listen((event) => debugPrint(event.toString()));
 
     return middleware;
   }
@@ -108,11 +109,7 @@ class LoggingMiddleware<State> extends MiddlewareClass<State> {
     dynamic action,
     DateTime timestamp,
   ) {
-    return "{\n" +
-        "  Action: $action,\n" +
-        "  State: $state,\n" +
-        "  Timestamp: ${new DateTime.now()}\n" +
-        "}";
+    return "{\n" + "  Action: $action,\n" + "  State: $state,\n" + "  Timestamp: ${new DateTime.now()}\n" + "}";
   }
 
   @override
