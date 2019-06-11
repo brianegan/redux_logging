@@ -109,7 +109,11 @@ class LoggingMiddleware<State> extends MiddlewareClass<State> {
     dynamic action,
     DateTime timestamp,
   ) {
-    return "{\n" + "  Action: $action,\n" + "  State: $state,\n" + "  Timestamp: ${new DateTime.now()}\n" + "}";
+    return "{\n" +
+        "  Action: $action,\n" +
+        "  State: $state,\n" +
+        "  Timestamp: ${new DateTime.now()}\n" +
+        "}";
   }
 
   @override
