@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.3.2
+
+  - Lazy evaluation for message in logger
+
 ## 0.3.1
 
   - BugFix: Add docs explaining logging middleware needs to be last in chain
