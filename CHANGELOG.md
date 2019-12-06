@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.4.0
+
+  - Breaking Change: Support Redux 4.x - 5.0
+
 ## 0.3.1
 
   - BugFix: Add docs explaining logging middleware needs to be last in chain
