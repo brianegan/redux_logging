@@ -3,6 +3,7 @@
 ## 0.4.0
 
   - Breaking Change: Support Redux 4.x - 5.0
+  - Lazy evaluation for message in logger
 
 ## 0.3.1
 
