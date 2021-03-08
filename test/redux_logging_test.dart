@@ -1,18 +1,18 @@
 import 'dart:async';
 
 import 'package:logging/logging.dart';
-import "package:redux/redux.dart";
+import 'package:redux/redux.dart';
 import 'package:redux_logging/redux_logging.dart';
-import "package:test/test.dart";
+import 'package:test/test.dart';
 
 void main() {
-  group("Logging Middleware", () {
+  group('Logging Middleware', () {
     int addReducer(int state, dynamic action) =>
         action is int ? state + action : state;
 
-    test("logs actions and state to the given logger", () async {
-      final middleware = new LoggingMiddleware<int>.printer();
-      final store = new Store<int>(
+    test('logs actions and state to the given logger', () async {
+      final middleware = LoggingMiddleware<int>.printer();
+      final store = Store<int>(
         addReducer,
         initialState: 1,
         middleware: [middleware],
@@ -22,19 +22,19 @@ void main() {
         store.dispatch(1);
       });
 
-      await expect(
+      await expectLater(
         middleware.logger.onRecord,
-        emits(new logMessageContains("{Action: 1, State: 2,")),
+        emits(logMessageContains('{Action: 1, State: 2,')),
       );
     });
 
-    test("can be configured with the correct logging level", () async {
-      final logger = new Logger("Test");
-      final store = new Store<int>(
+    test('can be configured with the correct logging level', () async {
+      final logger = Logger('Test');
+      final store = Store<int>(
         addReducer,
         initialState: 0,
         middleware: [
-          new LoggingMiddleware<int>.printer(
+          LoggingMiddleware<int>.printer(
             logger: logger,
             level: Level.SEVERE,
             formatter: LoggingMiddleware.multiLineFormatter,
@@ -46,14 +46,14 @@ void main() {
         store.dispatch(1);
       });
 
-      await expect(
+      await expectLater(
         logger.onRecord,
-        emits(new logLevel(Level.SEVERE)),
+        emits(logLevel(Level.SEVERE)),
       );
     });
 
     test('prints actions in correct order', () async {
-      var loggingMiddleware = new LoggingMiddleware<String>.printer();
+      var loggingMiddleware = LoggingMiddleware<String>.printer();
       void middleware(
         Store<String> store,
         dynamic action,
@@ -66,8 +66,9 @@ void main() {
         }
       }
 
-      final store = new Store<String>(
+      final store = Store<String>(
         (String state, dynamic action) => state,
+        initialState: '',
         middleware: [middleware, loggingMiddleware],
       );
 
@@ -75,11 +76,11 @@ void main() {
         store.dispatch('I');
       });
 
-      expect(
+      await expectLater(
         loggingMiddleware.logger.onRecord,
         emitsInOrder(<Matcher>[
-          new logMessageContains('I'),
-          new logMessageContains('U'),
+          logMessageContains('I'),
+          logMessageContains('U'),
         ]),
       );
     });
