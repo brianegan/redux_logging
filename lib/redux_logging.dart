@@ -99,7 +99,7 @@ class LoggingMiddleware<State> extends MiddlewareClass<State> {
     dynamic action,
     DateTime timestamp,
   ) {
-    return '{Action: $action, State: $state, ts: ${DateTime.now()}}';
+    return '{Action: $action, State: $state, ts: $timestamp}';
   }
 
   /// A formatter that puts each attribute on it's own line
@@ -111,7 +111,7 @@ class LoggingMiddleware<State> extends MiddlewareClass<State> {
     return '{\n'
         '  Action: $action,\n'
         '  State: $state,\n'
-        '  Timestamp: ${DateTime.now()}\n'
+        '  Timestamp: $timestamp\n'
         '}';
   }
 
