@@ -31,14 +31,14 @@ import 'package:redux/redux.dart';
 ///       middleware: [new LoggingMiddleware.printer()]
 ///     );
 ///
-///     store.dispatch("Hi"); // prints {Action: "Hi", Store: 1, Timestamp: ...}
+///     store.dispatch('Hi'); // prints {Action: 'Hi', Store: 1, Timestamp: ...}
 ///
 /// ### Example
 ///
 /// If you only want to log actions to a [Logger], use the default constructor.
 ///
 ///     // Create your own Logger
-///     final logger = new Logger("Redux Logger");
+///     final logger = new Logger('Redux Logger');
 ///
 ///     // Pass it to your Middleware
 ///     final middleware = new LoggingMiddleware(logger: logger);
@@ -68,19 +68,19 @@ class LoggingMiddleware<State> extends MiddlewareClass<State> {
   /// The default constructor. It will only log actions to the given [Logger],
   /// but it will not print to the console or anything else.
   LoggingMiddleware({
-    Logger logger,
+    Logger? logger,
     this.level = Level.INFO,
     this.formatter = singleLineFormatter,
-  }) : this.logger = logger ?? new Logger("LoggingMiddleware");
+  }) : logger = logger ?? Logger('LoggingMiddleware');
 
   /// A helper factory for creating a piece of LoggingMiddleware that only
   /// prints to the console.
   factory LoggingMiddleware.printer({
-    Logger logger,
+    Logger? logger,
     Level level = Level.INFO,
     MessageFormatter<State> formatter = singleLineFormatter,
   }) {
-    final middleware = new LoggingMiddleware<State>(
+    final middleware = LoggingMiddleware<State>(
       logger: logger,
       level: level,
       formatter: formatter,
@@ -99,7 +99,7 @@ class LoggingMiddleware<State> extends MiddlewareClass<State> {
     dynamic action,
     DateTime timestamp,
   ) {
-    return "{Action: $action, State: $state, ts: ${new DateTime.now()}}";
+    return '{Action: $action, State: $state, ts: ${DateTime.now()}}';
   }
 
   /// A formatter that puts each attribute on it's own line
@@ -108,17 +108,17 @@ class LoggingMiddleware<State> extends MiddlewareClass<State> {
     dynamic action,
     DateTime timestamp,
   ) {
-    return "{\n" +
-        "  Action: $action,\n" +
-        "  State: $state,\n" +
-        "  Timestamp: ${new DateTime.now()}\n" +
-        "}";
+    return '{\n'
+        '  Action: $action,\n'
+        '  State: $state,\n'
+        '  Timestamp: ${DateTime.now()}\n'
+        '}';
   }
 
   @override
   void call(Store<State> store, dynamic action, NextDispatcher next) {
     next(action);
-    logger.log(level, () => formatter(store.state, action, new DateTime.now()));
+    logger.log(level, () => formatter(store.state, action, DateTime.now()));
   }
 }
 
@@ -138,7 +138,7 @@ class LoggingMiddleware<State> extends MiddlewareClass<State> {
 ///         action,
 ///         DateTime timestamp,
 ///         ) {
-///       return "{Action: $action}";
+///       return '{Action: $action}';
 ///     }
 ///
 ///     // Create your middleware using the formatter.
@@ -150,7 +150,7 @@ class LoggingMiddleware<State> extends MiddlewareClass<State> {
 ///       initialState: 0,
 ///       middleware: [middleware],
 ///     );
-typedef String MessageFormatter<State>(
+typedef MessageFormatter<State> = String Function(
   State state,
   dynamic action,
   DateTime timestamp,
