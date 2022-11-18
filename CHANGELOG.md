@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.5.2
+
+  - Replace the discontinued pedantic package by lints
+
 ## 0.5.1
 
   - Wided logging dependency constraint to include 1.1.0

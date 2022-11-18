@@ -24,7 +24,7 @@ void main() {
 
       await expectLater(
         middleware.logger.onRecord,
-        emits(logMessageContains('{Action: 1, State: 2,')),
+        emits(LogMessageContains('{Action: 1, State: 2,')),
       );
     });
 
@@ -48,7 +48,7 @@ void main() {
 
       await expectLater(
         logger.onRecord,
-        emits(logLevel(Level.SEVERE)),
+        emits(LogLevel(Level.SEVERE)),
       );
     });
 
@@ -79,18 +79,18 @@ void main() {
       await expectLater(
         loggingMiddleware.logger.onRecord,
         emitsInOrder(<Matcher>[
-          logMessageContains('I'),
-          logMessageContains('U'),
+          LogMessageContains('I'),
+          LogMessageContains('U'),
         ]),
       );
     });
   });
 }
 
-class logMessageContains extends Matcher {
+class LogMessageContains extends Matcher {
   final Pattern pattern;
 
-  logMessageContains(this.pattern);
+  LogMessageContains(this.pattern);
 
   @override
   Description describe(Description description) {
@@ -108,10 +108,10 @@ class logMessageContains extends Matcher {
   }
 }
 
-class logLevel extends Matcher {
+class LogLevel extends Matcher {
   final Level level;
 
-  logLevel(this.level);
+  LogLevel(this.level);
 
   @override
   Description describe(Description description) {

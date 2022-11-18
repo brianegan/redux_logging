@@ -1,6 +1,6 @@
 name: redux_logging
 description: Redux.dart Middleware that prints the latest action & state
-version: 0.5.1
+version: 0.5.2
 homepage: https://github.com/brianegan/redux_logging
 
 environment:
@@ -12,4 +12,4 @@ dependencies:
 
 dev_dependencies:
   test: ^1.16.5
-  pedantic: ^1.11.0
+  lints: ^2.0.0
