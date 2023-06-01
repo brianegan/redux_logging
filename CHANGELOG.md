@@ -1,12 +1,11 @@
 # Changelog
 
-## 0.5.2
-
-  - Replace the discontinued pedantic package by lints
-
 ## 0.5.1
 
-  - Wided logging dependency constraint to include 1.1.0
+  - Widen logging dependency constraint 
+  - Replace the discontinued pedantic package by lints
+  - Move from Travis to github actions
+  - Update deps for Dart 3
 
 ## 0.5.0
 
@@ -46,7 +45,6 @@
 ## 0.1.1
 
   - Include description in `pubspec.yaml`
-
 
 ## 0.1.0
 
