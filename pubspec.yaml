@@ -4,7 +4,7 @@ version: 0.5.1
 homepage: https://github.com/brianegan/redux_logging
 
 environment:
-  sdk: '>=2.12.0 <3.0.0'
+  sdk: '>=2.12.0 <4.0.0'
 
 dependencies:
   redux: ">=5.0.0 <6.0.0"
