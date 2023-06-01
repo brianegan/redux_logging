@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.5.2
+
+  - Replace the discontinued pedantic package by lints
+
+## 0.5.1
+
+  - Wided logging dependency constraint to include 1.1.0
+
 ## 0.5.0
 
   - Breaking Change: updated to redux 5.0.0
