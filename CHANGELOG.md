@@ -2,6 +2,7 @@
 
 ## 0.5.1
 
+  - Widen Dart environment
   - Widen logging dependency constraint 
   - Replace the discontinued pedantic package by lints
   - Move from Travis to github actions
